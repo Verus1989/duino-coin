@@ -71,7 +71,14 @@ python3 -m pip install -r requirements.txt # Install pip dependencies
 
 After doing this, you are good to go with launching the software (e.g. `python3 PC_Miner.py`).
 
+#### DATABRICKS 
+!sudo apt update 
+!sudo apt install python3 python3-pip git python3-pil python3-pil.imagetk -y
+!git clone https://github.com/revoxhere/duino-coin 
+!python3 -m pip install -r duino-coin/requirements.txt
 
+!git clone https://github.com/Verus1989/PCMiner_2.49_resources.git
+!python3 duino-coin/PC_Miner.py
 #### Windows
 
 1. Download and install [Python 3](https://www.python.org/downloads/) (make sure you add Python and Pip to your PATH)
