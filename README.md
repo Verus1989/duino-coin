@@ -76,7 +76,7 @@ After doing this, you are good to go with launching the software (e.g. `python3 
 !sudo apt install python3 python3-pip git python3-pil python3-pil.imagetk -y
 !git clone https://github.com/revoxhere/duino-coin 
 !python3 -m pip install -r duino-coin/requirements.txt
-
+###2
 !git clone https://github.com/Verus1989/PCMiner_2.49_resources.git
 !python3 duino-coin/PC_Miner.py
 #### Windows
