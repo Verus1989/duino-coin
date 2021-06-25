@@ -31,7 +31,12 @@ thread_lock = Lock()
 
 
 def install(package):
-    pip.main(["install",  package])
+    try:
+        pip.main(["install",  package])
+    except AttributeError:
+        check_call([sys.executable, '-m', 'pip', 'install', package])
+
+    execl(sys.executable, sys.executable, *sys.argv)
 
 
 def now():
@@ -161,6 +166,8 @@ try:
             lang = "turkish"
         elif locale.startswith("pr"):
             lang = "portugese"
+        elif locale.startswith("it"):
+            lang = "italian"
         elif locale.startswith("zh"):
             lang = "chinese_simplified"
         else:
@@ -1172,7 +1179,7 @@ def initRichPresence():
         debug_output("Discord rich presence initialized")
     except Exception as e:
         # Discord not launched
-        debug_output("Error launching Discord RPC thead: " + str(e))
+        debug_output("Error launching Discord RPC thread: " + str(e))
 
 
 def updateRichPresence():
@@ -1206,7 +1213,7 @@ def updateRichPresence():
             debug_output("Rich presence updated")
         except Exception as e:
             # Discord not launched
-            debug_output("Error launching Discord RPC thead: " + str(e))
+            debug_output("Error launching Discord RPC thread: " + str(e))
         sleep(15)  # 15 seconds to respect Discord rate limit
 
 
